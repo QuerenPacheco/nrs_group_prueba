@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use App\Models\Proveedor;
 use App\Models\Calidad;
+use App\Services\CSVExportService;
+
 
 class ClienteController extends Controller
 {
+    protected $csvExportService;
+
+    public function __construct(CSVExportService $csvExportService)
+    {
+        $this->csvExportService = $csvExportService;
+    }
+
     public function index()
     {
         $clientes = Cliente::all();
@@ -71,12 +81,12 @@ class ClienteController extends Controller
         return view('clientes.edit', compact('cliente', 'proveedores', 'calidades'));
     }
 
-    // Método para actualizar el cliente
     public function update(Request $request, $id)
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
+            'dni' => 'required|string|max:9',
             'fecha_alta' => 'required|date',
             'precio_venta' => 'required|numeric',
             'proveedor_id' => 'required|exists:proveedores,id',
@@ -96,4 +106,22 @@ class ClienteController extends Controller
 
         return redirect()->route('clientes.index')->with('success', 'Cliente eliminado con éxito.');
     }
+
+    public function exportarClientes()
+    {
+        $columnas = [
+            'Nombre' => 'nombre',
+            'Apellidos' => 'apellidos', 
+            'DNI' => 'dni',
+            'Fecha de alta' => 'fecha_alta', 
+            'Precio de venta' => 'precio_venta',
+            'Precio de compra' => 'calidad->precio_compra',
+            'Proveedor' => 'proveedor->nombre_empresa',
+            'Calidad' => 'calidad->nombre'
+        ];
+
+
+        return $this->csvExportService->exportarCSV(Cliente::class, $columnas, 'listado_clientes.csv');
+    }
+
 }

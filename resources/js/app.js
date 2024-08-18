@@ -35,3 +35,4 @@ $('th').click(function() {
     if (asc) element.addClass("asc");
     else element.addClass("desc");
   }
+

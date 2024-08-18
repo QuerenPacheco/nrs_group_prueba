@@ -69,5 +69,8 @@
 
         <!-- Botón para crear un nuevo cliente -->
         <a href="{{ route('clientes.create') }}" class="btn btn-success">Añadir Cliente</a>
+        <a href="{{ url('/exportarClientes') }}" class="btn btn-primary">Exportar a CSV</a>
+
     </div>
+
 @endsection
