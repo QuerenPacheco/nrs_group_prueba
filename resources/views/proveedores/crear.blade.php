@@ -16,18 +16,18 @@
         @csrf
 
         <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <label for="nombre_empresa" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" required>
         </div>
 
         <div class="mb-3">
-                <label for="pais" class="form-label">País</label>
-                <input type="text" class="form-control" id="pais" name="pais" value="{{ old('pais', $proveedor->pais) }}" required>
-            </div>
+            <label for="pais" class="form-label">País</label>
+            <input type="text" class="form-control" id="pais" name="pais" required>
+        </div>
 
         <div class="mb-3">
             <label for="cif" class="form-label">CIF</label>
-            <input type="number" class="form-control" id="cif" name="cif" required></td> 
+            <input type="text" class="form-control" id="cif" name="cif" required>
         </div>
 
         <div class="mb-3">
