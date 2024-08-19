@@ -53,6 +53,12 @@ class ProveedorController extends Controller
         return redirect()->route('proveedores.index')->with('success', 'Proveedor creado con éxito.');
     }
 
+    public function show($id)
+    {
+        $proveedor = Proveedor::findOrFail($id);
+        return view('proveedores.show', compact('proveedor'));
+    }
+
     public function edit($id)
     {
         $proveedor = Proveedor::findOrFail($id);

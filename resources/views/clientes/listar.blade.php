@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach($clientes as $cliente)
                         @php
-                            $precioCompra = $cliente->calidad->precio_compra ?? 0; // Se asegura de que existe el precio_compra
+                            $precioCompra = $cliente->calidad->precio_compra ?? 0;
                             $beneficio = $cliente->precio_venta - $precioCompra;
                         @endphp
                         <tr>
@@ -67,7 +67,6 @@
             <p class="alert alert-info text-center">No hay clientes disponibles en este momento.</p>
         @endif
 
-        <!-- Botón para crear un nuevo cliente -->
         <a href="{{ route('clientes.create') }}" class="btn btn-success">Añadir Cliente</a>
         <a href="{{ url('/exportarClientes') }}" class="btn btn-primary">Exportar a CSV</a>
 
