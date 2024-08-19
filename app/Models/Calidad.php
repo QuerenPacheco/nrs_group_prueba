@@ -10,7 +10,7 @@ class Calidad extends Model
     use HasFactory;
 
     protected $table = 'calidades';
-    protected $fillable = ['nombre', 'precio', 'precio_compra', 'proveedor_id'];
+    protected $fillable = ['nombre', 'precio_compra', 'proveedor_id'];
 
     public function proveedor()
     {
