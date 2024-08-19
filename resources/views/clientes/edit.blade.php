@@ -10,6 +10,15 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="text-center">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <form action="{{ route('clientes.update', $cliente->id) }}" method="POST">
             @csrf
@@ -23,6 +32,11 @@
             <div class="mb-3">
                 <label for="apellidos" class="form-label">Apellidos</label>
                 <input type="text" class="form-control" id="apellidos" name="apellidos" value="{{ old('apellidos', $cliente->apellidos) }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" name="dni" value="{{ old('dni', $cliente->dni) }}" required>
             </div>
 
             <div class="mb-3">

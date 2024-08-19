@@ -10,14 +10,22 @@
                 {{ session('success') }}
             </div>
         @endif
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="text-center">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('proveedores.update', $proveedor->id) }}" method="POST">
             @csrf
             @method('PUT')
 
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre', $proveedor->nombre_empresa) }}" required>
+                <label for="nombre_empresa" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" value="{{ old('nombre_empresa', $proveedor->nombre_empresa) }}" required>
             </div>
 
             <div class="mb-3">
