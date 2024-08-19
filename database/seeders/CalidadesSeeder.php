@@ -14,7 +14,7 @@ class CalidadesSeeder extends Seeder
      */
     public function run(): void
     {
-        $proveedor_id = 4;
+        $proveedor_id = 1;
 
         DB::table('calidades')->insert([
             'nombre' => 'Calidad 1',
