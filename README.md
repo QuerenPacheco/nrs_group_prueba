@@ -8,7 +8,7 @@ Esta prueba consiste en una aplicación web usando el framework Laravel para ges
 
 -Se puede dar de alta, modificar, eliminar y listar clientes y proveedores.
 
--El listado de proveedores tiene un botón "Mostrar" el cual mostrará los detalles de ese proveedor y las calidades que tiene asociadas puediendo editarlas, borrarlas y añadir nuevas. Al editar la calidad estará seleccionado por defecto el proveedor al que pertenece, si lo dejamos igual y guardamos nos redirigirá al detalle del proveedor y si lo cambiamos nos llevará al listado de proveedores.
+-El listado de proveedores tiene un botón "Detalles" el cual mostrará los detalles de ese proveedor y las calidades que tiene asociadas puediendo editarlas, borrarlas y añadir nuevas. Al editar la calidad estará seleccionado por defecto el proveedor al que pertenece, si lo dejamos igual y guardamos nos redirigirá al detalle del proveedor y si lo cambiamos nos llevará al listado de proveedores.
 
 -El sistema muestra un aviso con los clientes que tengan un margen de beneficio negativo, pudiendo ordenar la tabla por el campo beneficio conseguimos los que tengan el beneficio en negativo para poder editarlos.
 
