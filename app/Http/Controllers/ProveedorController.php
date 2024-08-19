@@ -64,8 +64,15 @@ class ProveedorController extends Controller
         $request->validate([
             'nombre_empresa' => 'required|string|max:255',
             'pais' => 'required|string|max:255',
-            'cif' => 'required|string|max:9',
+            'cif' => 'required|string|size:9',
             'fecha_alta' => 'required|date',
+        ],
+        [
+            'nombre_empresa.required' => 'El campo nombre no puede estar vacío.',
+            'pais.required' => 'El campo país no puede estar vacío.',
+            'cif.required' => 'El campo CIF no puede estar vacío.',
+            'cif.size' => 'El CIF debe tener :max caracteres.',
+            'fecha_alta.required' => 'La fecha de alta no puede estar vacío.'
         ]);
 
         $proveedor = Proveedor::findOrFail($id);

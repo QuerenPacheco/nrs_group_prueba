@@ -83,14 +83,24 @@ class ClienteController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
-            'dni' => 'required|string|max:9',
+            'dni' => 'required|string|size:9',
             'fecha_alta' => 'required|date',
             'precio_venta' => 'required|numeric',
             'proveedor_id' => 'required|exists:proveedores,id',
             'calidad_id' => 'required|exists:calidades,id',
+        ], [
+            'nombre.required' => 'El campo nombre no puede estar vacío.',
+            'apellidos.required' => 'El campo apellidos no puede estar vacío.',
+            'dni.required' => 'El campo DNI no puede estar vacío.',
+            'dni.size' => 'El DNI debe tener :max caracteres.',
+            'fecha_alta.required' => 'La fecha de alta no puede estar vacío.',
+            'precio_venta.required' => 'El precio de venta no puede estar vacío.',
+            'proveedor_id.required' => 'Debe seleccionar no puede estar vacío.',
+            'calidad_id.required' => 'Debe seleccionar no puede estar vacío.',
         ]);
 
         $cliente = Cliente::findOrFail($id);
