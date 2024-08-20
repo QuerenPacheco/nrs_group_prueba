@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Services;
+
 use App\Models\Cliente;
 use App\Models\Proveedor;
 use Illuminate\Support\Facades\Response;
@@ -18,7 +20,7 @@ class CSVExportService
         ];
 
 
-        $callback = function() use ($objetos, $columnas) {
+        $callback = function () use ($objetos, $columnas) {
             $archivo = fopen('php://output', 'w');
             fputcsv($archivo, array_keys($columnas));
 

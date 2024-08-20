@@ -1,19 +1,32 @@
-table tr th {
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  .sorting {
-    background-color: #D4D4D4;
-  }
-  
-  .asc:after {
-    content: ' ↑';
-  }
-  
-  .desc:after {
-    content: " ↓";
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.navbar {
+  background-color: #fff;
+  color: #0094de;
+  width: 100%;
+  top: 0;
+  left: 0;
+  justify-content: space-around!important;
+  z-index: 1000;
+}
+
+
+.navbar a {
+  color: #0094de;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: inline-block;
+  font-size: 16px;
+}
+.navbar a:hover {
+  background-color: #0094de;
+  color:white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+}
+.container {
+  margin-top: 100px;
+}

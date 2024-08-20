@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@vite('resources/js/app.js')
 @section('content')
 <div class="container">
     <h1 class="mt-4">Añadir Cliente</h1>
@@ -62,41 +62,5 @@
     </form>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.no_calidad').hide()
-        $('#proveedor').on('change', function() {
-            var proveedorId = $(this).val();
-            if (proveedorId) {
-                $.ajax({
-                    url: '/calidades/' + proveedorId,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        console.log(data)
-                        
-                        $('#calidad').empty().prop('disabled', false);
-                        if(data.length > 0){
-                            $('#calidad').show();
-                            $('.no_calidad').hide();
-                            $.each(data, function(key, value) {
-                                $('#calidad').append('<option value="">Seleccione una calidad</option>');
-                                $('#calidad').append('<option value="' + value.id + '">' + value.nombre + '</option>');
-                            });
-                        }else{
-                            $('#calidad').hide();
-                            $('.no_calidad').show();
-                        }
-                        
-                    }
-                });
-            } else {
-                $('#calidad').empty().prop('disabled', true);
-                $('#calidad').append('<option value="">Seleccione una calidad</option>');
-            }
-        });
-    });
-    
-</script>
+
 @endsection

@@ -67,19 +67,21 @@ class ProveedorController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nombre_empresa' => 'required|string|max:255',
-            'pais' => 'required|string|max:255',
-            'cif' => 'required|string|size:9',
-            'fecha_alta' => 'required|date',
-        ],
-        [
-            'nombre_empresa.required' => 'El campo nombre no puede estar vacío.',
-            'pais.required' => 'El campo país no puede estar vacío.',
-            'cif.required' => 'El campo CIF no puede estar vacío.',
-            'cif.size' => 'El CIF debe tener :max caracteres.',
-            'fecha_alta.required' => 'La fecha de alta no puede estar vacío.'
-        ]);
+        $request->validate(
+            [
+                'nombre_empresa' => 'required|string|max:255',
+                'pais' => 'required|string|max:255',
+                'cif' => 'required|string|size:9',
+                'fecha_alta' => 'required|date',
+            ],
+            [
+                'nombre_empresa.required' => 'El campo nombre no puede estar vacío.',
+                'pais.required' => 'El campo país no puede estar vacío.',
+                'cif.required' => 'El campo CIF no puede estar vacío.',
+                'cif.size' => 'El CIF debe tener :max caracteres.',
+                'fecha_alta.required' => 'La fecha de alta no puede estar vacío.'
+            ]
+        );
 
         $proveedor = Proveedor::findOrFail($id);
         $proveedor->update($request->all());
@@ -98,9 +100,9 @@ class ProveedorController extends Controller
     public function exportarProveedores()
     {
         $columnas = [
-            'Nombre' => 'nombre_empresa', 
-            'País' => 'pais', 
-            'CIF' => 'cif', 
+            'Nombre' => 'nombre_empresa',
+            'País' => 'pais',
+            'CIF' => 'cif',
             'Fecha de alta' => 'fecha_alta'
         ];
 

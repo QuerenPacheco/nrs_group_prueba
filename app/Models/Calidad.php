@@ -16,13 +16,11 @@ class Calidad extends Model
     {
 
         return $this->belongsTo(Proveedor::class);
-
     }
 
     public function clientes()
     {
 
         return $this->hasMany(Cliente::class);
-
     }
 }

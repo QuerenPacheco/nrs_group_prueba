@@ -62,7 +62,7 @@ class CalidadController extends Controller
         ], [
             'nombre.required' => 'El campo nombre no puede estar vacío.',
             'precio_compra.required' => 'El campo precio de compra no puede estar vacío.',
-            'proveedor_id.required' => 'Debe seleccionar no puede estar vacío.',
+            'proveedor_id.required' => 'Debe seleccionar un proveedor no puede estar vacío.',
         ]);
 
         $calidad = Calidad::findOrFail($id);

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -25,6 +26,7 @@ class ClienteController extends Controller
             $precioCompra = $cliente->calidad->precio_compra ?? 0;
             return ($cliente->precio_venta - $precioCompra) < 0;
         });
+
         return view('clientes.listar', compact('clientes', 'beneficioNegativo'));
     }
 
@@ -121,9 +123,9 @@ class ClienteController extends Controller
     {
         $columnas = [
             'Nombre' => 'nombre',
-            'Apellidos' => 'apellidos', 
+            'Apellidos' => 'apellidos',
             'DNI' => 'dni',
-            'Fecha de alta' => 'fecha_alta', 
+            'Fecha de alta' => 'fecha_alta',
             'Precio de venta' => 'precio_venta',
             'Precio de compra' => 'calidad->precio_compra',
             'Proveedor' => 'proveedor->nombre_empresa',
@@ -133,5 +135,4 @@ class ClienteController extends Controller
 
         return $this->csvExportService->exportarCSV(Cliente::class, $columnas, 'listado_clientes.csv');
     }
-
 }

@@ -8,13 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Proveedor extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'proveedores';
     protected $fillable = ['nombre_empresa', 'pais', 'cif', 'fecha_alta'];
-    protected $casts = [
-        'fecha_alta' => 'datetime',
-    ];
-    
+    protected $casts = ['fecha_alta' => 'datetime'];
+
     public function clientes()
     {
         return $this->hasMany(Cliente::class);
