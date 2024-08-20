@@ -35,7 +35,7 @@
 
             <div class="mb-3">
                 <label for="cif" class="form-label">CIF</label>
-                <input type="number" class="form-control" id="cif" name="cif" value="{{ old('cif', $proveedor->cif) }}" required></td> 
+                <input type="text" class="form-control" id="cif" name="cif" value="{{ old('cif', $proveedor->cif) }}" required></td> 
             </div>
 
             <div class="mb-3">

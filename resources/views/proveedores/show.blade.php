@@ -45,7 +45,14 @@
             <a href="{{ route('calidades.create', $proveedor->id) }}" class="btn btn-success">Añadir Calidad</a>
 
     </div>
+</div>
+    <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display:inline-block;">
+        @csrf
+        @method('DELETE')
+            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este proveedor?')">Eliminar Proveedor</button>
+    </form>
 
-    <a href="{{ route('proveedores.index') }}" class="btn btn-secondary mt-4">Volver a la Lista de Proveedores</a>
+<div class="d-grid gap-2 mt-3">
+    <a href="{{ route('proveedores.index') }}" class="btn btn-secondary">Volver a la Lista de Proveedores</a>
 </div>
 @endsection
