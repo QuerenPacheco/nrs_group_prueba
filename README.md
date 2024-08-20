@@ -19,6 +19,7 @@ Este proyecto tiene una configuración docker. Si queremos desplegarlo mediante 
 ```
    docker-compose up -d --build
 ```
+Cuando el contenedor esté levantado, si las carpetas vendor y node_modules no están completas, puede aparecer un error 502. Este problema se resuelve al cabo de unos segundos cuando las carpetas ya están completas. 
 Si no queremos desplegarlo con docker deberemos tener los siguientes requisitos:
 - PHP 8.2
 - NPM
