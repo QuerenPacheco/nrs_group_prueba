@@ -10,10 +10,10 @@
         @endif
         
         @if ($calidades->count() > 0)
-            <table class="table table-bordered">
+            <table class="table table-sm">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Nombre</th>
                         <th>Precio de Compra</th>
                         <th>Proveedor</th>
