@@ -35,13 +35,8 @@
 
             <div class="mb-3">
                 <label for="proveedor_id" class="form-label">Proveedor</label>
-                <select class="form-select" id="proveedor_id" name="proveedor_id" required>
-                    @foreach($proveedores as $proveedor)
-                        <option value="{{ $proveedor->id }}" {{ $proveedor->id == old('proveedor_id', $calidad->proveedor_id) ? 'selected' : '' }}>
-                            {{ $proveedor->nombre_empresa }}
-                        </option>
-                    @endforeach
-                </select>
+                <input type="text" class="form-control" id="proveedor" name="proveedor" value="{{ $proveedorPreseleccionado->nombre_empresa }}" required disabled>
+                <input type="text" class="form-control" id="proveedor_id" name="proveedor_id" value="{{ $proveedorPreseleccionado->id }}" required hidden>
             </div>
 
            

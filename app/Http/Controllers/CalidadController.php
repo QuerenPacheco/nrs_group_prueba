@@ -48,8 +48,8 @@ class CalidadController extends Controller
     public function edit($id)
     {
         $calidad = Calidad::findOrFail($id);
-        $proveedores = Proveedor::all();
-        return view('calidades.edit', compact('calidad', 'proveedores'));
+        $proveedorPreseleccionado = Proveedor::findOrFail($calidad->proveedor_id);
+        return view('calidades.edit', compact('calidad', 'proveedorPreseleccionado'));
     }
 
     public function update(Request $request, $id)
