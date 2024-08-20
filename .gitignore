@@ -4,6 +4,8 @@
 /public/storage
 .phpactor.json
 .phpunit.result.cache
+vendor
+node_modules
 Homestead.json
 Homestead.yaml
 auth.json
