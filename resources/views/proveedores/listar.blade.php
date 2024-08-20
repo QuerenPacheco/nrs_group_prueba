@@ -31,7 +31,7 @@
                             <td>{{ $proveedor->fecha_alta->format('Y-m-d') }}</td>
                             <td>
                                 <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="btn btn-primary btn-sm">Editar</a>
-                                <a href="{{ route('proveedores.show', $proveedor->id) }}" class="btn btn-primary btn-sm">Detalles</a>
+                                <a href="{{ route('proveedores.show', $proveedor->id) }}" class="btn btn-primary btn-sm">Calidades</a>
                                 <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')

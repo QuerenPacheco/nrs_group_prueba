@@ -62,20 +62,21 @@ class CalidadController extends Controller
         ], [
             'nombre.required' => 'El campo nombre no puede estar vacío.',
             'precio_compra.required' => 'El campo precio de compra no puede estar vacío.',
-            'proveedor_id.required' => 'Debe seleccionar un proveedor no puede estar vacío.',
+            'proveedor_id.required' => 'Debe seleccionar un proveedor, no puede estar vacío.',
         ]);
 
         $calidad = Calidad::findOrFail($id);
         $calidad->update($request->all());
 
-        return redirect()->route('proveedores.index')->with('success', 'Calidad actualizado con éxito.');
+        return redirect()->route('proveedores.index')->with('success', 'Calidad actualizada con éxito.');
     }
 
     public function destroy($id)
     {
         $calidad = Calidad::findOrFail($id);
+        $proveedor_id = $calidad->proveedor_id;
         $calidad->delete();
 
-        return redirect()->route('calidades.index')->with('success', 'Calidad eliminado con éxito.');
+        return redirect()->route('proveedores.show', $proveedor_id)->with('success', 'Calidad eliminada con éxito.');
     }
 }
