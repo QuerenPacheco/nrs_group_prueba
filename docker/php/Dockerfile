@@ -21,11 +21,6 @@ WORKDIR /var/www
 
 COPY . /var/www
 
-RUN composer install \
-    && npm install
-
-RUN npm run build
-
 COPY init.sh /usr/local/bin/init.sh
 RUN chmod +x /usr/local/bin/init.sh
 

@@ -191,4 +191,4 @@
         </button>
     </div>
 </div>
-<?php /**PATH /home/queren/test3/nrs_group_prueba/vendor/laravel/framework/src/Illuminate/Foundation/resources/exceptions/renderer/components/theme-switcher.blade.php ENDPATH**/ ?>
+<?php /**PATH /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Providers/../resources/exceptions/renderer/components/theme-switcher.blade.php ENDPATH**/ ?>
